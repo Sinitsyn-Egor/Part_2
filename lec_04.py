@@ -17,7 +17,7 @@ print(x[1:])
 print(x[1:, [2, 0, 1]])
 
 # маскирование
-mask = np.array([1, 1, 1, 0], dtype = bool)
+mask = np.array([1, 1, 1, 0], dtype=bool)
 row = np.array([0, 1, 2])
 print(mask)
 print(mask.shape)
@@ -30,20 +30,10 @@ print(x[row[:], mask])
 # (3, )
 
 
-
-
-
-
-
-
-
-
 rng = np.random.default_rng(seed=1)
 x = rng.multivariate_normal([0, 0], [[1, 2], [2, 5]], 100)
 
 print(x.shape)
-
-
 
 
 np.random.seed(0)
@@ -52,24 +42,24 @@ print(inx)
 
 select = x[inx]
 
-#import matplotlib.pyplot as plt  # noqa: E402
+# import matplotlib.pyplot as plt  # noqa: E402
 
-#plt.scatter(x[:, 0], x[:, 1], alpha=0.3)
-#plt.scatter(select[:, 0], select[:, 1], s=200, facecolor = 'none', edgecolors='black')
-#plt.show()
+# plt.scatter(x[:, 0], x[:, 1], alpha=0.3)
+# plt.scatter(select[:, 0], select[:, 1], s=200, facecolor = 'none', edgecolors='black')
+# plt.show()
 
 x = np.arange(10)
 print(x)
 inx = np.array([2, 4, 8, 1, 4, 4, 4, 4, 4])
 
-#x[inx] = 99
+# x[inx] = 99
 x[inx] += 1
 np.add.at(x, inx, 1)
 print(x)
 
 
-rng = np.random.default_rng(seed = 1)
-x = rng.integers(100, size = 100)
+rng = np.random.default_rng(seed=1)
+x = rng.integers(100, size=100)
 print(x[:10])
 
 bins = np.linspace(0, 100, 11)
@@ -86,18 +76,18 @@ print(counts)
 
 print(np.sum(counts))
 
-a = [3, 2, 5, 1, 4, 6, 78, 3, 54, 6,3, 2,4, 56]
-#print(sorted(a))
+a = [3, 2, 5, 1, 4, 6, 78, 3, 54, 6, 3, 2, 4, 56]
+# print(sorted(a))
 
-#print(a)
-#a.sort()
-#print(a)
+# print(a)
+# a.sort()
+# print(a)
 
 
 x = np.array(a)
 print(x)
 
-print(np.sort(x)) # sorted
+print(np.sort(x))  # sorted
 print(x)
 
 
@@ -108,7 +98,7 @@ print(inx)
 print(x[inx])
 
 
-rng = np.random.default_rng(seed = 1)
+rng = np.random.default_rng(seed=1)
 x = rng.integers(0, 10, size=(4, 6))
 print(x)
 
@@ -118,28 +108,29 @@ print(np.sort(x, axis=0))
 # структурированные массива
 # массивы записей
 
-name = ['Ирина', 'Виталий', 'Олег', 'Саша']
+name = ["Ирина", "Виталий", "Олег", "Саша"]
 age = [25, 17, 52, 44]
 weight = [55.0, 57, 78, 72]
 
 i = 1
 print(name[i], age[i], weight[i])
 
-data = np.zeros(4, dtype={'names':('name_', 'age_', 'weight_'), 'formats':('U10', 'i4', 'f8')})
+data = np.zeros(
+    4, dtype={"names": ("name_", "age_", "weight_"), "formats": ("U10", "i4", "f8")}
+)
 
 print(data.dtype)
 
-data['name_'] = name
-data['age_'] = age
-data['weight_'] = weight
+data["name_"] = name
+data["age_"] = age
+data["weight_"] = weight
 
 print(data)
 
 
-
-print(data['name_'])
+print(data["name_"])
 print(data[0])
-print(data[-1]['name_'])
+print(data[-1]["name_"])
 
 data_rec = data.view(np.recarray)
 print(data_rec)
@@ -148,23 +139,23 @@ print(data_rec.name_)
 print(data_rec[0])
 print(data_rec[-1].name_)
 
-print(data['age_'] < 30)
+print(data["age_"] < 30)
 
-print(data[data['age_'] < 30])
+print(data[data["age_"] < 30])
 
-print(data[data['age_'] < 30]['name_'])
+print(data[data["age_"] < 30]["name_"])
 
-tp = np.dtype([('id', 'i8'), ('mat', 'f8', (3, 3))])
+tp = np.dtype([("id", "i8"), ("mat", "f8", (3, 3))])
 x = np.zeros(2, dtype=tp)
 print(x)
 
-x['mat'][0] = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+x["mat"][0] = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 
 print(x)
 
-data = [('Ирина', 25, 55), ('Виталий', 17, 57)]
-dtype={'names':('name_', 'age_', 'weight_'), 'formats':('U10', 'i4', 'f8')}
+data = [("Ирина", 25, 55), ("Виталий", 17, 57)]
+dtype = {"names": ("name_", "age_", "weight_"), "formats": ("U10", "i4", "f8")}
 
 
 data_rec = np.rec.array(data, dtype=dtype)
