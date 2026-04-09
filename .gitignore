@@ -12,3 +12,4 @@ wheels/
 # Info data
 *.csv
 data_files/
+/.vscode
