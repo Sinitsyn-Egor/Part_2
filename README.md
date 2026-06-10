@@ -1,6 +1,6 @@
 git add .
 git add lec_01.py
 
-git commit -m "Начальный коммит"
+git commit -m "commit"
 
-git commit -m "Первоначальный коммит"
+git push -u origin main
