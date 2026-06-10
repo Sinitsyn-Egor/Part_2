@@ -1,5 +1,4 @@
 git add .
-git add lec_01.py
 
 git commit -m "commit"
 
